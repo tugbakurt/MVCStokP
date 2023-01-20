@@ -1,4 +1,4 @@
-﻿
+﻿@model MVCStok.Models.Entity.TBL_satislar
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -7,31 +7,35 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
     Satış Yap
 </button>
-<div class="modal" id="Modal1" >
+<div class="modal" id="Modal1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title">Satış Yapma Ekranı</h2>
             </div>
-            <form action="/" method="post">
+            <form action="/Satis/YeniSatis" method="post">
                 <div class="modal-body">
                     <label>
-                     Ürün Adı
+                       Ürün Adı
                     </label>
-                    <input type="text" name="Urun" class="form-control" />
+                    @Html.TextAreaFor(m => m.urun, new { @class = "form-control" })
                     <br />
-                    <label> Ürün Markası</label>
-                    <input type="text" name="Marka" class="form-control" />
+                    <label>
+                        Müşteri Adı Soyadı
+                    </label>
+                    @Html.TextAreaFor(m => m.musteri, new { @class = "form-control" })
                     <br />
-                    <label> Müşteri Adı </label>
-                    <input type="text" name="Müsteri" class="form-control" /> <br />
-                    <label> Müşteri Soyadı</label>
-                    <input type="text" name="Soyad" class="form-control" />
+                    <label> Adet</label>
+                    @Html.TextAreaFor(m => m.adet, new { @class = "form-control" })
                     <br />
-                    <button class="btn btn-info"> Verileri Kaydet</button>
+                    <label> Fiyat </label>
+                    @Html.TextAreaFor(m => m.fiyat, new { @class = "form-control" })
+                    <br />
+                    <button type="submit" class="btn btn-info"> Satış İşlemini Yap </button>
+                    <button type="button" class="btn btrn-danger" data-dismiss="modal">İptal Et</button>
                 </div>
 
-            </form>
+            </form >
         </div>
     </div>
 </div>
