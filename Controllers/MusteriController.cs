@@ -10,10 +10,16 @@ namespace MVCStok.Controllers
     {
         // GET: Musteri
         URUNSTOKPROJEDBEntities db = new URUNSTOKPROJEDBEntities();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var degerler = db.TBL_musteriler.ToList();
-            return View(degerler);
+            var degerler = from d in db.TBL_musteriler select d;
+            if (!string.IsNullOrEmpty(p))
+            {
+                degerler = degerler.Where(m => m.mmusteriad.Contains(p));
+            }
+            return View(degerler.ToList());
+            //var degerler = db.TBL_musteriler.ToList();
+            //return View(degerler);
         }
 
         [HttpGet]

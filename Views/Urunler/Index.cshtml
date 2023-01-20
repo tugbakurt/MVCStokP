@@ -5,32 +5,37 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<table class="table table table-bordered">
-    <tr>
-        <th>Ürün Id:</th>
-        <th>Ürün Adı:</th>
-        <th>Markası:</th>
-        <th>Kategori:</th>
-        <th>Fiyat:</th>
-        <th>SİL</th>
-        <th>GÜNCELLE</th>
-
-    </tr>
-    <tbody>
-        
-        @foreach (var urn in Model)
-        {
+<table id="tbl1" class="table table table-bordered">
+    <thead>
         <tr>
-            <th>@urn.urunid</th>
-            <th>@urn.urunad</th>
-            <th>@urn.marka</th>
-            <th>@urn.urunkategori</th>
-            <th>@urn.fiyat</th>
-            <td><a href="/Urunler/Sil/@urn.urunid" class="btn btn-danger">SİL</a></td>
-            <td><a href="/Urunler/UrunGetir/@urn.urunid" class="btn btn-success">GÜNCELLE</a></td>
+            <th>Ürün Id:</th>
+
+            <th>Ürün Adı:</th>
+            <th>Markası:</th>
+            <th>Kategori:</th>
+            <th>Fiyat:</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
 
         </tr>
+    <tbody>
+        </thead>
+
+        @foreach (var urn in Model)
+        {
+            <tr>
+                <th>@urn.urunid</th>
+                <th>@urn.urunad</th>
+                <th>@urn.marka</th>
+                <th>@urn.urunkategori</th>
+                <th>@urn.fiyat</th>
+                <td><a href="/Urunler/Sil/@urn.urunid" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Urunler/UrunGetir/@urn.urunid" class="btn btn-success">GÜNCELLE</a></td>
+
+            </tr>
         }
     </tbody>
 </table>
 <a href="/Urunler/UrunEkle" class="btn btn-primary">Yeni Ürün Ekle</a>
+
+
