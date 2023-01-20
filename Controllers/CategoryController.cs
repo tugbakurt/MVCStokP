@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
 using MVCStok.Models.Entity;
+using PagedList;
 
 namespace MVCStok.Controllers
 {
@@ -12,10 +14,12 @@ namespace MVCStok.Controllers
         // GET: Category
         URUNSTOKPROJEDBEntities db = new URUNSTOKPROJEDBEntities();
 
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
 
-            var degerler = db.TBL_kategoriler.ToList();
+            // var degerler = db.TBL_kategoriler.ToList();
+
+            var degerler = db.TBL_kategoriler.ToList().ToPagedList(sayfa,4);//1.sayfadan başlayacak. kaç adet göstercek(4 dedik)
             return View(degerler);
         }
 
