@@ -1,2 +1,2 @@
 # MVCStokPRoject
-Bir MVC projesi geliştirmesiyle ilgili örnekler ve deneyler içeren proje.
+Bir MVC projesi geliştirmesiyle ilgili örnek içeren proje.
