@@ -11,7 +11,8 @@ namespace MVCStok.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TBL_musteriler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,8 @@ namespace MVCStok.Models.Entity
         {
             this.TBL_satislar = new HashSet<TBL_satislar>();
         }
-    
+    [Required(ErrorMessage ="Bu alaný boþ býrakamazsýnýz!")]
+    [StringLength(50,ErrorMessage ="En fazla 50 karakterlik isim girin...")]
         public int musteriid { get; set; }
         public string mmusteriad { get; set; }
         public string musterisoyad { get; set; }

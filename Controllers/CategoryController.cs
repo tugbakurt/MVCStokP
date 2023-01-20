@@ -28,6 +28,10 @@ namespace MVCStok.Controllers
         [HttpPost]
         public ActionResult YeniCategory(TBL_kategoriler p1)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("YeniCategory");
+            }
             db.TBL_kategoriler.Add(p1);
             db.SaveChanges();
             return View();
@@ -43,8 +47,14 @@ namespace MVCStok.Controllers
         public ActionResult KategoriGetir(int id)
         {
             var ktgr = db.TBL_kategoriler.Find(id);
-            db.SaveChanges();
             return View("KategoriGetir",ktgr);
+        }
+        public ActionResult Guncelle(TBL_kategoriler p1)
+        {
+            var ktg = db.TBL_kategoriler.Find(p1.kategoriid);
+            ktg.kategoriad = p1.kategoriad;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
