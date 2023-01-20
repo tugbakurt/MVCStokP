@@ -31,7 +31,8 @@ namespace MVCStok.Controllers
 
         [HttpPost]
         public ActionResult YeniCategory(TBL_kategoriler p1)
-        {
+        { 
+            
             if (!ModelState.IsValid)
             {
                 return View("YeniCategory");
